@@ -8,7 +8,7 @@ import com.lab409.Domain.BaseResult;
 import com.lab409.Domain.EventDomain;
 
 /**
- * @author xianganying
+ * @author ad
  * @version v0.1 2017/5/19.
  */
 @RestController
@@ -21,8 +21,13 @@ public class EventController {
         return eventService.postEvent(eventDomain);
     }
 
-    @RequestMapping(value = "/events", method = RequestMethod.GET)
-    public BaseResult<Object> getEventByEventId(@RequestParam("eventId") Integer eventId){
+    @RequestMapping(value = "/events/{eventId}", method = RequestMethod.GET)
+    public BaseResult<Object> getEventByEventId(@PathVariable("eventId") Integer eventId){
         return eventService.getEventByEventId(eventId);
+    }
+
+    @RequestMapping(value = "/events", method = RequestMethod.GET)
+        public BaseResult<Object> getEvents(){
+            return eventService.getEvents();
     }
 }

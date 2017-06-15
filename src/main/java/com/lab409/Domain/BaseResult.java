@@ -3,7 +3,8 @@ package com.lab409.Domain;
 import java.io.Serializable;
 
 /**
- * Created by Administrator on 2017/5/19.
+ * @author ad
+ * @version v0.1 2017/5/19.
  */
 public class BaseResult<T> implements Serializable {
 

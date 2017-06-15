@@ -3,7 +3,7 @@ package com.lab409.Service;
 import com.lab409.Domain.BaseResult;
 import com.lab409.Domain.EventDomain;
 /**
- * @author xianganying
+ * @author ad
  * @version v0.1 2017/5/19.
  */
 public interface EventService {
@@ -20,5 +20,11 @@ public interface EventService {
      * @return
      */
     BaseResult<Object> getEventByEventId(Integer eventId);
+
+    /**
+     * 获取所有事件的大致
+     * @return
+     */
+    BaseResult<Object> getEvents();
 
 }

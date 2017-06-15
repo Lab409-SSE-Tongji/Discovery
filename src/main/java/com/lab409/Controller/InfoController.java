@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Created by Administrator on 2017/5/19.
+ * @author ad
+ * @version v0.1 2017/5/19.
  */
 @RestController
 public class InfoController {

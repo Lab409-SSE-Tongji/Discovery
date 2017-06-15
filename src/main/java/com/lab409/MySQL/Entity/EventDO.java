@@ -5,7 +5,7 @@ import com.lab409.Domain.EventDomain;
 import java.sql.Timestamp;
 
 /**
- * @author xianganying
+ * @author ad
  * @version v0.1 2017/5/19.
  */
 public class EventDO {
@@ -16,6 +16,8 @@ public class EventDO {
     private String content;
     private Integer student_id;
     private Timestamp time;
+    private String type;
+    private String title;
 
     public EventDO(Integer event_id, Double position_x, Double position_y, String pic_path, String content, Integer student_id, Timestamp time) {
         this.event_id = event_id;
@@ -27,11 +29,24 @@ public class EventDO {
         this.time = time;
     }
 
+    public EventDO(Integer event_id, Double position_x, Double position_y, String content, Integer student_id, Timestamp time, String type, String title) {
+        this.event_id = event_id;
+        this.position_x = position_x;
+        this.position_y = position_y;
+        this.content = content;
+        this.student_id = student_id;
+        this.time = time;
+        this.type = type;
+        this.title = title;
+    }
+
     public EventDO(EventDomain eventDomain) {
         this.position_x = eventDomain.getPositionX();
         this.position_y = eventDomain.getPositionY();
         this.content = eventDomain.getContent();
         this.student_id = eventDomain.getStudentId();
+        this.type = eventDomain.getType();
+        this.title = eventDomain.getTitle();
     }
 
     public EventDO() {
@@ -85,11 +100,17 @@ public class EventDO {
         this.student_id = student_id;
     }
 
-    public Timestamp getTime() {
-        return time;
-    }
+    public Timestamp getTime() { return time; }
 
     public void setTime(Timestamp time) {
         this.time = time;
     }
+
+    public String getType() { return type; }
+
+    public void setType(String type) { this.type = type; }
+
+    public String getTitle() { return title; }
+
+    public void setTitle(String title) { this.title = title; }
 }

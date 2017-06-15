@@ -4,6 +4,7 @@ import com.lab409.Service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import com.lab409.Domain.BaseResult;
 import com.lab409.Domain.EventDomain;
@@ -11,7 +12,7 @@ import com.lab409.MySQL.Mapper.EventMapper;
 import com.lab409.MySQL.Entity.EventDO;
 
 /**
- * @author xianganying
+ * @author ad
  * @version v0.1 2017/5/19.
  */
 
@@ -33,8 +34,23 @@ public class EventServiceImpl implements EventService {
             return new BaseResult<>(new EventDomain(eventDO, simpleDateFormat.format(eventDO.getTime())));
         }
         else {
-            return new BaseResult<>(500, "No attachment found");
+            return new BaseResult<>(500, "No events found");
         }
     }
 
+    public BaseResult<Object> getEvents() {
+
+        EventDO[] eventDOS = eventMapper.getEvents();
+        EventDomain[] eventDomains = new EventDomain[eventDOS.length];
+        if (eventDOS.length != 0){
+            for (int i = 0; i < eventDomains.length; i++){
+//                String time = simpleDateFormat.format(eventDOS[0].getTime());
+                eventDomains[i] = new EventDomain(eventDOS[i], simpleDateFormat.format(eventDOS[i].getTime()));
+            }
+            return new BaseResult<> (eventDomains);
+        }
+        return new BaseResult<>(500, "No events found");
+
+    }
+// eventDOS[i], simpleDateFormat.format(eventDOS[i].getTime())
 }

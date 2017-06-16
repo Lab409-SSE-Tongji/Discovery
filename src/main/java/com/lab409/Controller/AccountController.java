@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class AccountController {
     @Autowired
-    AccountService accountService;
+    private AccountService accountService;
 
     @RequestMapping(value = "/accounts", method = RequestMethod.POST)
     public BaseResult<Object> register(@RequestBody AccountDomain accountDomain) throws Exception{

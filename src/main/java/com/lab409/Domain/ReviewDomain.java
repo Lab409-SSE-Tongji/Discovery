@@ -20,6 +20,12 @@ public class ReviewDomain {
         this.content = content;
     }
 
+    public ReviewDomain(Integer eventId, Integer userId, String content) {
+        this.eventId = eventId;
+        this.userId = userId;
+        this.content = content;
+    }
+
     public ReviewDomain(ReviewDO reviewDO) {
         this.reviewId = reviewDO.getReview_id();
         this.userId = reviewDO.getUser_id();

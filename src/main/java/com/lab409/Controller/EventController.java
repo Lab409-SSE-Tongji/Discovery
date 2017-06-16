@@ -14,7 +14,7 @@ import com.lab409.Domain.EventDomain;
 @RestController
 public class EventController {
     @Autowired
-    EventService eventService;
+    private EventService eventService;
 
     @RequestMapping(value = "/events", method = RequestMethod.POST)
     public BaseResult<Object> postEvent(@RequestBody EventDomain eventDomain){

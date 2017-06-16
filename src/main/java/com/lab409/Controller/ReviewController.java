@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class ReviewController {
     @Autowired
-    ReviewService reviewService;
+    private ReviewService reviewService;
 
     @RequestMapping(value = "/review", method = RequestMethod.POST)
     public BaseResult<Object> postReview(@RequestBody ReviewDomain reviewDomain) {

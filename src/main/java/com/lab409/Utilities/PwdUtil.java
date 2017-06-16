@@ -10,7 +10,7 @@ import java.security.NoSuchAlgorithmException;
  * @author ad
  * @version v0.1 2017/6/15.
  */
-public class PwdUtility {
+public class PwdUtil {
    /**利用MD5进行加密
      * @param str  待加密的字符串
      * @return  加密后的字符串

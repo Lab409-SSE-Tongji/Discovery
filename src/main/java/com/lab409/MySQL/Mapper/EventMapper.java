@@ -18,8 +18,8 @@ public interface EventMapper {
      * @param eventDO
      * @return
      */
-    @Insert("INSERT INTO events(position_x, position_y, content, student_id, type, title) " +
-            "VALUES(#{position_x}, #{position_y}, #{content}, #{student_id}, #{type}, #{title})")
+    @Insert("INSERT INTO events(position_x, position_y, pic_path, content, student_id, type, title) " +
+            "VALUES(#{position_x}, #{position_y}, #{pic_path}, #{content}, #{student_id}, #{type}, #{title})")
     int insertEvent(EventDO eventDO);
 
     /**

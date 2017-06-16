@@ -1,11 +1,13 @@
 package com.lab409.Service.Impl;
 
 import com.lab409.Service.EventService;
+import com.lab409.Utilities.SaveFileUtil;
+import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+
 import com.lab409.Domain.BaseResult;
 import com.lab409.Domain.EventDomain;
 import com.lab409.MySQL.Mapper.EventMapper;
@@ -25,6 +27,7 @@ public class EventServiceImpl implements EventService {
     private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     public BaseResult<Object> postEvent(EventDomain eventDomain) {
+        SaveFileUtil.getFileFromBytes(Base64.decodeBase64(eventDomain.getFile()), eventDomain.getPicPath());
         eventMapper.insertEvent(new EventDO(eventDomain));
         return new BaseResult<>();
     }

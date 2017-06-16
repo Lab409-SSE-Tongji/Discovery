@@ -43,6 +43,7 @@ public class EventDO {
     public EventDO(EventDomain eventDomain) {
         this.position_x = eventDomain.getPositionX();
         this.position_y = eventDomain.getPositionY();
+        this.pic_path = eventDomain.getPicPath();
         this.content = eventDomain.getContent();
         this.student_id = eventDomain.getStudentId();
         this.type = eventDomain.getType();

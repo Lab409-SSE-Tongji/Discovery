@@ -6,6 +6,10 @@ import org.springframework.web.bind.annotation.*;
 import com.lab409.Service.EventService;
 import com.lab409.Domain.BaseResult;
 import com.lab409.Domain.EventDomain;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.File;
+import java.io.IOException;
 
 /**
  * @author ad

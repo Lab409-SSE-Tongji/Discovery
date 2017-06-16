@@ -17,14 +17,17 @@ public class EventDomain {
     private String time;
     private String type;
     private String title;
+    private String file;
 
-    public EventDomain(Double positionX, Double positionY, String content, Integer studentId, String type, String title) {
+    public EventDomain(Double positionX, Double positionY, String content, Integer studentId, String type, String title, String picPath, String file) {
         this.positionX = positionX;
         this.positionY = positionY;
         this.content = content;
         this.studentId = studentId;
         this.type = type;
+        this.picPath = picPath;
         this.title = title;
+        this.file = file;
     }
     public EventDomain(EventDO eventDO, String createTime) {
         this.eventId = eventDO.getEvent_id();
@@ -35,7 +38,6 @@ public class EventDomain {
         this.time = createTime;
         this.type = eventDO.getType();
         this.title = eventDO.getTitle();
-
     }
 
     public EventDomain() {
@@ -104,4 +106,12 @@ public class EventDomain {
     public String getTitle() { return title; }
 
     public void setTitle(String title) { this.title = title; }
+
+    public String getFile() {
+        return file;
+    }
+
+    public void setFile(String file) {
+        this.file = file;
+    }
 }

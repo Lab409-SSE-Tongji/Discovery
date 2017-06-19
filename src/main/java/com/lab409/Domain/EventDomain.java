@@ -29,6 +29,19 @@ public class EventDomain {
         this.title = title;
         this.file = file;
     }
+
+    public EventDomain(EventDO eventDO, String file, String createTime) {
+        this.eventId = eventDO.getEvent_id();
+        this.positionX = eventDO.getPosition_x();
+        this.positionY = eventDO.getPosition_y();
+        this.content = eventDO.getContent();
+        this.studentId = eventDO.getStudent_id();
+        this.file = file;
+        this.time = createTime;
+        this.type = eventDO.getType();
+        this.title = eventDO.getTitle();
+    }
+
     public EventDomain(EventDO eventDO, String createTime) {
         this.eventId = eventDO.getEvent_id();
         this.positionX = eventDO.getPosition_x();

@@ -1,7 +1,7 @@
 package com.lab409.Service.Impl;
 
 import com.lab409.Service.EventService;
-import com.lab409.Utilities.SaveFileUtil;
+import com.lab409.Utilities.FileCodingUtil;
 import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,14 +27,14 @@ public class EventServiceImpl implements EventService {
     private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     public BaseResult<Object> postEvent(EventDomain eventDomain) {
-        SaveFileUtil.getFileFromBytes(Base64.decodeBase64(eventDomain.getFile()), eventDomain.getPicPath());
+        FileCodingUtil.saveFileFromBytes(Base64.decodeBase64(eventDomain.getFile()), eventDomain.getPicPath());
         eventMapper.insertEvent(new EventDO(eventDomain));
         return new BaseResult<>();
     }
     public BaseResult<Object> getEventByEventId(Integer eventId) {
         EventDO eventDO = eventMapper.getEventByEventId(eventId);
         if(eventDO != null) {
-            return new BaseResult<>(new EventDomain(eventDO, simpleDateFormat.format(eventDO.getTime())));
+            return new BaseResult<>(new EventDomain(eventDO, FileCodingUtil.encodeFile(eventDO.getPic_path()), simpleDateFormat.format(eventDO.getTime())));
         }
         else {
             return new BaseResult<>(500, "No events found");
